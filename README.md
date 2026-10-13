@@ -16,6 +16,7 @@ My research already covers time-series forecasting, IoT/CPS data, model validati
 - unit tests
 - GitHub Actions CI
 - prediction/data-drift monitoring hooks
+- leakage-aware SQL feature extraction example
 - cloud-ready AWS deployment mapping
 
 ## Architecture
@@ -35,7 +36,7 @@ flowchart LR
 
 ## Tech stack
 
-Python, pandas, scikit-learn, XGBoost, FastAPI, Pydantic, joblib, Docker, pytest, GitHub Actions.
+Python, SQL, pandas, scikit-learn, XGBoost, FastAPI, Pydantic, joblib, Docker, pytest, GitHub Actions.
 
 ## Quick start
 
@@ -60,6 +61,10 @@ docker run -p 8000:8000 forecasting-api
 ## Validation strategy
 
 Random splitting is intentionally avoided. For time-series data, training observations must precede validation/test observations to prevent future information leaking into the past. The pipeline also fits preprocessing only on training data.
+
+## SQL feature example
+
+`sql/forecast_features.sql` shows how lagged and rolling forecasting features can be created with SQL window functions while excluding the current target from rolling statistics. This keeps feature generation aligned with information that would actually be available at prediction time.
 
 ## Monitoring
 
@@ -90,7 +95,7 @@ This is an implementation-oriented demonstration of cloud readiness; it does **n
 ## Interview talking points
 
 1. Why chronological validation matters for forecasting.
-2. How leakage can enter feature engineering and preprocessing.
+2. How leakage can enter feature engineering, preprocessing, and SQL feature creation.
 3. Why a baseline must be compared with a more complex model.
 4. How training-serving skew is prevented by sharing feature code.
 5. What should be monitored after deployment.
@@ -99,4 +104,4 @@ This is an implementation-oriented demonstration of cloud readiness; it does **n
 
 ## Relation to my work
 
-This repository complements my ML2++ and AI4RIVER work by showing a small, inspectable path from **time-series data → validated model → API → container → CI → monitoring**.
+This repository complements my ML2++ and AI4RIVER work by showing a small, inspectable path from **time-series data -> validated model -> API -> container -> CI -> monitoring**.
