@@ -18,6 +18,7 @@ My research already covers time-series forecasting, IoT/CPS data, model validati
 - prediction/data-drift monitoring hooks
 - leakage-aware SQL feature extraction example
 - cloud-ready AWS deployment mapping
+- provider-agnostic GenAI/RAG/agentic-AI portfolio demo with retrieval, tool routing, groundedness checks and evaluation
 
 ## Architecture
 
@@ -76,6 +77,20 @@ The monitoring module provides simple production hooks for:
 - rolling error tracking when actuals become available
 - retraining recommendations
 
+## GenAI / RAG / Agentic AI portfolio demo
+
+The `genai_rag_demo/` folder adds a small, provider-agnostic implementation that demonstrates concepts requested in modern enterprise AI roles:
+
+- Retrieval-Augmented Generation control flow
+- grounded prompt construction
+- tool/function routing for agentic workflows
+- retrieval-quality evaluation
+- groundedness / hallucination-risk checks
+- regression tests for retrieval and routing
+- an explicit mapping to how the same application logic could be connected to Azure AI Search and Azure OpenAI / Azure AI Foundry
+
+This is **portfolio evidence and hands-on practice**, not a claim of prior production ownership of Azure, commercial LLM infrastructure, or enterprise agent platforms.
+
 ## AWS mapping
 
 This repository is deliberately cloud-provider neutral, but the same components can be mapped to AWS:
@@ -101,7 +116,9 @@ This is an implementation-oriented demonstration of cloud readiness; it does **n
 5. What should be monitored after deployment.
 6. What events should trigger retraining.
 7. How the local architecture maps to SageMaker/ECR/CloudWatch.
+8. How a RAG application separates retrieval, orchestration, tool calling, evaluation, and provider-specific LLM integration.
+9. How groundedness checks and structured evaluation can reduce hallucination risk.
 
 ## Relation to my work
 
-This repository complements my ML2++ and AI4RIVER work by showing a small, inspectable path from **time-series data -> validated model -> API -> container -> CI -> monitoring**.
+This repository complements my ML2++ and AI4RIVER work by showing a small, inspectable path from **time-series data -> validated model -> API -> container -> CI -> monitoring**, plus a separate **retrieval -> grounded prompt -> tool routing -> evaluation** GenAI workflow.
