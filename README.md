@@ -1,5 +1,7 @@
 # Production Time-Series Forecasting & MLOps Demo
 
+> **Hiring-manager quick demo:** [Run the forecasting project in 5 minutes](RECRUITER_QUICKSTART.md) — includes a sample API request, interview talking points, and explicit demo limitations.
+
 A compact, production-oriented forecasting project built around the same class of multivariate sensor/time-series problems used in my research. The goal is to demonstrate the engineering steps required to move a forecasting model from an experiment into a reliable service.
 
 ## Why this repository
