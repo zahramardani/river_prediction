@@ -69,6 +69,12 @@ Random splitting is intentionally avoided. For time-series data, training observ
 
 `sql/forecast_features.sql` shows how lagged and rolling forecasting features can be created with SQL window functions while excluding the current target from rolling statistics. This keeps feature generation aligned with information that would actually be available at prediction time.
 
+## SQL time-series analytics mini-project
+
+**[River Station SQL Analytics — runnable portfolio exercise](sql/station_analytics/README.md)**
+
+A separate **folder within this same repository** (not another repo) demonstrates SQLite database design, joins, aggregates, CTEs, ROW_NUMBER(), LAG(), gap-aware historical features, and five tested data-quality/leakage checks using only synthetic station data. Run it with Python's standard library; it does not claim professional database production experience.
+
 ## Monitoring
 
 The monitoring module provides simple production hooks for:
