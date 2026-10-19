@@ -21,5 +21,7 @@ jobs:
         run: python -m src.train
       - name: Run tests
         run: pytest -q
+      - name: Run SQL portfolio tests
+        run: python -m unittest discover -s sql/station_analytics -p 'test_sql_project.py' -v
       - name: Build Docker image
         run: docker build -t forecasting-api:ci .
