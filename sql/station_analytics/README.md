@@ -51,3 +51,25 @@ No `pip install` is required for this mini-project.
 > I completed Database Systems and Advanced Database Systems coursework. To demonstrate my practical SQL knowledge, I added a reproducible SQLite project to my time-series portfolio. It uses joins, aggregations, CTEs, window functions and gap-aware lag features for synthetic river-station data, with Python unit tests to check data quality and avoid look-ahead leakage.
 
 **Link to main project:** [Time-Series Forecasting & MLOps](../../README.md).
+
+
+<!-- BEGIN FOLDER GUIDE -->
+## Folder guide
+
+A self-contained station database, synthetic records, analytical queries and standard-library tests.
+
+[Parent folder](../) · [Repository overview](../../README.md) · [All projects](https://github.com/zahramardani/ML2PP-Artifacts/blob/main/PROJECTS.md)
+
+### Contents
+
+| Item | What it is |
+|---|---|
+| [queries.sql](queries.sql) | Named analytical SQL queries for the station example. |
+| [run_demo.py](run_demo.py) | Runs the SQLite demonstration using Python's standard library. |
+| [schema.sql](schema.sql) | SQLite table definitions, constraints and index. |
+| [seed.sql](seed.sql) | Synthetic station and weather records for the SQL example. |
+| [test_sql_project.py](test_sql_project.py) | Automated checks for sql project. |
+
+**Start here:** [run_demo.py](run_demo.py).
+
+<!-- END FOLDER GUIDE -->

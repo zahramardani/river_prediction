@@ -67,3 +67,33 @@ The monitoring functions are local helpers. Managed monitoring, automated retrai
 - [ML2++ research artifacts](https://github.com/zahramardani/ML2PP-Artifacts): research models, datasets, retained evidence and reference workflows.
 - [Django river-data prototype](https://github.com/zahramardani/river_prediction1): a separate historical web application.
 - [ML2++ RAG Copilot](https://github.com/zahramardani/ML2PP-Artifacts/tree/main/portfolio/ml2pp-rag-copilot): a separate API with optional LLM generation.
+
+
+<!-- BEGIN FOLDER GUIDE -->
+## Folder guide
+
+A synthetic time-series forecasting example with a FastAPI service, SQL station analytics, retrieval examples and engineering checks.
+
+[Repository overview](README.md) · [All projects](https://github.com/zahramardani/ML2PP-Artifacts/blob/main/PROJECTS.md)
+
+### Contents
+
+| Item | What it is |
+|---|---|
+| [.github/](.github/) | Repository-level GitHub configuration, including the automated-check workflow definitions. |
+| [deploy/](deploy/) | Architecture and deployment notes for the forecasting demonstration. |
+| [genai_rag_demo/](genai_rag_demo/) | The small TF-IDF retrieval example, grounded-prompt construction, deterministic tool routing and evaluation helpers. |
+| [sql/](sql/) | SQL feature-extraction examples and a separate runnable SQLite station-analytics project. |
+| [src/](src/) | Python modules for sample-data generation, time-series features, model training, FastAPI inference and local monitoring helpers. |
+| [tests/](tests/) | Automated checks for the forecasting feature pipeline and chronological data split. |
+| [.dockerignore](.dockerignore) | Patterns excluding local files from the Docker build context. |
+| [.gitignore](.gitignore) | Patterns excluding local caches, environments or generated outputs from new commits. |
+| [Dockerfile](Dockerfile) | Container-image build instructions for this application. |
+| [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | Code map for the forecasting, SQL and retrieval demonstrations. |
+| [pytest.ini](pytest.ini) | Pytest collection and import-path settings. |
+| [RECRUITER_QUICKSTART.md](RECRUITER_QUICKSTART.md) | Local walkthrough and example forecasting API request. |
+| [requirements.txt](requirements.txt) | Python dependency list for this component. |
+
+**Start here:** [RECRUITER_QUICKSTART.md](RECRUITER_QUICKSTART.md).
+
+<!-- END FOLDER GUIDE -->

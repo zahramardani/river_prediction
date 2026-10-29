@@ -27,3 +27,15 @@ This folder documents how the local MLOps demo maps to a production AWS design w
 ## Interview explanation
 
 > I have not claimed production AWS ownership in my CV. I built the project cloud-ready so I can explain how the same training, serving and monitoring components would map to SageMaker, S3, ECR and CloudWatch. My strongest hands-on experience is Python, forecasting, data validation and software engineering, and I am extending that experience into MLOps/cloud deployment.
+
+
+<!-- BEGIN FOLDER GUIDE -->
+## Folder guide
+
+A mapping from the local forecasting components to possible AWS services. Read the existing guide for its stated implementation scope.
+
+[Parent folder](../) · [Repository overview](../../README.md) · [All projects](https://github.com/zahramardani/ML2PP-Artifacts/blob/main/PROJECTS.md)
+
+This directory currently contains its README only. The existing text above explains the intended role of this documentation area.
+
+<!-- END FOLDER GUIDE -->

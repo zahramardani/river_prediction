@@ -30,3 +30,23 @@ The demo intentionally does not claim production ownership of any commercial LLM
 ## Enterprise mapping
 
 The same architecture can be implemented with Azure AI Search + Azure OpenAI / Azure AI Foundry, with identity, secrets, monitoring, and governance added around the core workflow. This repository demonstrates the application logic only; it does **not** claim prior production ownership of Azure infrastructure.
+
+
+<!-- BEGIN FOLDER GUIDE -->
+## Folder guide
+
+The small TF-IDF retrieval example, grounded-prompt construction, deterministic tool routing and evaluation helpers.
+
+[Parent folder](../) · [Repository overview](../README.md) · [All projects](https://github.com/zahramardani/ML2PP-Artifacts/blob/main/PROJECTS.md)
+
+### Contents
+
+| Item | What it is |
+|---|---|
+| [tests/](tests/) | Checks for relevant retrieval, grounded-prompt construction and tool selection in the small retrieval example. |
+| [evaluate.py](evaluate.py) | Lightweight retrieval and answer-support evaluation helpers. |
+| [rag_agent.py](rag_agent.py) | TF-IDF retrieval, grounded prompts and deterministic tool routing. |
+
+**Start here:** [tests/](tests/).
+
+<!-- END FOLDER GUIDE -->
