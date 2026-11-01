@@ -5,6 +5,35 @@ A compact Python portfolio project that takes synthetic sensor data through feat
 **Author:** Zahra Mardani Korani  
 [All projects](https://github.com/zahramardani/ML2PP-Artifacts/blob/main/PROJECTS.md) · [Five-minute walkthrough](RECRUITER_QUICKSTART.md) · [Code map](PROJECT_STRUCTURE.md)
 
+
+## Engineering workflow
+
+The project demonstrates the path from a tabular sensor dataset to a locally served prediction:
+
+1. Generate synthetic hourly observations.
+2. Sort observations by timestamp and construct past-target lags, a shifted rolling mean and cyclical hour features.
+3. Split the prepared rows into chronological training, validation and test partitions (70% / 15% / remaining 15%, subject to rounding).
+4. Train XGBoost and report test MAE, RMSE and R² alongside a persistence baseline.
+5. Save the model and reference statistics, then serve predictions through FastAPI.
+
+### Outputs and service contract
+
+| Output or route | Purpose |
+|---|---|
+| `artifacts/model.joblib` | Model loaded by the prediction endpoint |
+| `artifacts/metrics.json` | Model and baseline scores, partition sizes and feature names |
+| `artifacts/reference_stats.json` | Training-feature means and standard deviations |
+| `GET /health` | Reports whether the model file exists; it does not test model validity |
+| `POST /predict` | Accepts the nine prepared features and returns a numeric `prediction` |
+| `GET /docs` | Interactive request schema and endpoint documentation |
+
+The prediction endpoint returns HTTP 503 when the model artifact is absent. Rainfall must be nonnegative, and the two cyclical hour features must lie between −1 and 1. The complete example request is in the [walkthrough](RECRUITER_QUICKSTART.md).
+
+### Temporal assumptions
+
+Lags are measured in rows. They represent hours only when records are unique, ordered and regularly hourly. The feature builder sorts timestamps but does not enforce regular cadence or reject duplicate timestamps. Validate those properties before replacing the generated data. Test-period lag values use earlier observed targets, so the evaluation represents sequential predictions with observations becoming available, rather than a recursive forecast of an entire unseen block.
+
+
 ## Choose a starting point
 
 | Area | What is implemented | Entry point |
@@ -67,33 +96,3 @@ The monitoring functions are local helpers. Managed monitoring, automated retrai
 - [ML2++ research artifacts](https://github.com/zahramardani/ML2PP-Artifacts): research models, datasets, retained evidence and reference workflows.
 - [Django river-data prototype](https://github.com/zahramardani/river_prediction1): a separate historical web application.
 - [ML2++ RAG Copilot](https://github.com/zahramardani/ML2PP-Artifacts/tree/main/portfolio/ml2pp-rag-copilot): a separate API with optional LLM generation.
-
-
-<!-- BEGIN FOLDER GUIDE -->
-## Folder guide
-
-A synthetic time-series forecasting example with a FastAPI service, SQL station analytics, retrieval examples and engineering checks.
-
-[Repository overview](README.md) · [All projects](https://github.com/zahramardani/ML2PP-Artifacts/blob/main/PROJECTS.md)
-
-### Contents
-
-| Item | What it is |
-|---|---|
-| [.github/](.github/) | Repository-level GitHub configuration, including the automated-check workflow definitions. |
-| [deploy/](deploy/) | Architecture and deployment notes for the forecasting demonstration. |
-| [genai_rag_demo/](genai_rag_demo/) | The small TF-IDF retrieval example, grounded-prompt construction, deterministic tool routing and evaluation helpers. |
-| [sql/](sql/) | SQL feature-extraction examples and a separate runnable SQLite station-analytics project. |
-| [src/](src/) | Python modules for sample-data generation, time-series features, model training, FastAPI inference and local monitoring helpers. |
-| [tests/](tests/) | Automated checks for the forecasting feature pipeline and chronological data split. |
-| [.dockerignore](.dockerignore) | Patterns excluding local files from the Docker build context. |
-| [.gitignore](.gitignore) | Patterns excluding local caches, environments or generated outputs from new commits. |
-| [Dockerfile](Dockerfile) | Container-image build instructions for this application. |
-| [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | Code map for the forecasting, SQL and retrieval demonstrations. |
-| [pytest.ini](pytest.ini) | Pytest collection and import-path settings. |
-| [RECRUITER_QUICKSTART.md](RECRUITER_QUICKSTART.md) | Local walkthrough and example forecasting API request. |
-| [requirements.txt](requirements.txt) | Python dependency list for this component. |
-
-**Start here:** [RECRUITER_QUICKSTART.md](RECRUITER_QUICKSTART.md).
-
-<!-- END FOLDER GUIDE -->
