@@ -42,6 +42,7 @@ Lags are measured in rows. They represent hours only when records are unique, or
 | API | Validated prediction requests and a health endpoint | [FastAPI application](src/api.py) |
 | SQL analytics | SQLite schema, joins, CTEs, window functions and gap-aware features | [Runnable SQL project](sql/station_analytics/README.md) |
 | Retrieval demonstration | TF-IDF retrieval, prompt construction, deterministic tool routing and lexical support checks | [RAG demonstration](genai_rag_demo/README.md) |
+| Extreme-flow GenAI / LLM / RAG | Sensor peak analytics, TF-IDF evidence retrieval, optional cited LLM answers and API tests | [Extreme-Flow RAG Assistant](projects/extreme_flow_rag/README.md) |
 | Monitoring helpers | Missing rates, mean-shift indicators, rolling MAE and retraining recommendations | [Monitoring module](src/monitor.py) |
 | Packaging and checks | Docker build, automated tests and CI workflow | [Dockerfile](Dockerfile) · [CI](.github/workflows/ci.yml) |
 
